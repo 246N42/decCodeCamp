@@ -36,18 +36,18 @@ user_transport = confirmation(transportation, 'Would you like to get there by ')
 
 user_entertainment = confirmation(entertainment, 'While you\'re there do you want to go to a ')
 
-# Make final confirmations to your trip
-temp = True
+# Make final confirmations to your trip and print results.
+check_itinerary = True
  
-while temp:
+while check_itinerary:
     full_trip = input('Are you happy with your entire trip? (Y/N) ')
     if full_trip == 'Y':
-        temp = False
+        check_itinerary = False
         print('Enjoy your trip to ' + user_destination + '. You\'ll arrive by ' + user_transport + ', followed by dinner at ' + user_restaurant + '. Finally, you\'ll get to finish the night at a ' + user_entertainment + '.')
     elif full_trip == 'N':
         answer = input('Do you want to change your anything about your trip? (Y/N?) ' )
         if answer == 'Y':
-            amend_choice = input('Would you like to change your destinaion? (Y/N)')
+            amend_choice = input('Would you like to change your destinaion? (Y/N) ')
             if amend_choice == 'Y':
                 user_destination = confirmation(destinations, 'Would you like to go to ')
             restaurant_change = input('Do you want to change your restaurant choice? (Y/N)? ')
@@ -60,5 +60,5 @@ while temp:
             if transport_change == 'Y':
                 user_entertainment = confirmation(entertainment, 'While you\'re there do you want to go to a ')
 
-# Print out the full trip
+
 
