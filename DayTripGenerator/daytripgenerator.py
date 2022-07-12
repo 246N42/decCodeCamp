@@ -15,19 +15,50 @@ def confirmation(notlists,question):
     confirm = 'N'
     while confirm == 'N':
         random_selection = random.choice(notlists)
-        confirm = input(question + random_selection + '? (Y/N?)')
+        confirm = input(question + random_selection + '? (Y/N?) ')
         if confirm == 'N':
             notlists.remove(random_selection)
             if len(notlists) == 0:
                 confirm = ''
                 print('You rejected all options.')
         elif confirm == 'Y':
-            print('Great choice! Next question.')
+            print('Great choice!')
+            print('')
+    return random_selection
+    
+# Determine initial trip choices
 
-confirmation(destinations,'Would you like to go to ')
+user_destination = confirmation(destinations,'Would you like to go to ')
 
-confirmation(restaurants, 'Would you like to go to ')
+user_restaurant = confirmation(restaurants, 'Would you like to go to ')
 
-confirmation(transportation, 'Would you like to get there by ')
+user_transport = confirmation(transportation, 'Would you like to get there by ')
 
-confirmation (entertainment, 'While you\'re there do you want to go to a ')
+user_entertainment = confirmation(entertainment, 'While you\'re there do you want to go to a ')
+
+# Make final confirmations to your trip
+temp = True
+ 
+while temp:
+    full_trip = input('Are you happy with your entire trip? (Y/N) ')
+    if full_trip == 'Y':
+        temp = False
+        print('Enjoy your trip to ' + user_destination + '. You\'ll arrive by ' + user_transport + ', followed by dinner at ' + user_restaurant + '. Finally, you\'ll get to finish the night at a ' + user_entertainment + '.')
+    elif full_trip == 'N':
+        answer = input('Do you want to change your anything about your trip? (Y/N?) ' )
+        if answer == 'Y':
+            amend_choice = input('Would you like to change your destinaion? (Y/N)')
+            if amend_choice == 'Y':
+                user_destination = confirmation(destinations, 'Would you like to go to ')
+            restaurant_change = input('Do you want to change your restaurant choice? (Y/N)? ')
+            if restaurant_change == 'Y':
+                user_restaurant = confirmation(restaurants, 'Would you like to go to ')
+            transport_change = input('Do you want to change your transportation choice? (Y/N)? ')    
+            if transport_change == 'Y':
+                user_transport = confirmation(transportation, 'Would you like to get there by ')
+            entertainment_change = input('Do you want to change your entertainment choice? (Y/N)? ')    
+            if transport_change == 'Y':
+                user_entertainment = confirmation(entertainment, 'While you\'re there do you want to go to a ')
+
+# Print out the full trip
+
