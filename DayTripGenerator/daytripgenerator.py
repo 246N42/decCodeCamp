@@ -47,7 +47,7 @@ while check_itinerary:
     elif full_trip == 'N':
         answer = input('Do you want to change your anything about your trip? (Y/N?) ' )
         if answer == 'Y':
-            amend_choice = input('Would you like to change your destinaion? (Y/N) ')
+            amend_choice = input('Would you like to change your destinaion? (Y/N?) ')
             if amend_choice == 'Y':
                 user_destination = confirmation(destinations, 'Would you like to go to ')
             restaurant_change = input('Do you want to change your restaurant choice? (Y/N)? ')
